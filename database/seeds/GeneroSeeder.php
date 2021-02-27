@@ -22,13 +22,6 @@ class GeneroSeeder extends Seeder
         DB::table('generos')->insert([
             'nombre' => 'M',
         ]);
-        DB::table('generos')->insert([
-            'nombre' => 'F',
-        ]);
-
-        DB::table('generos')->insert([
-            'nombre' => 'M',
-        ]);
        
     }
 }
