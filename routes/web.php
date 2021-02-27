@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('paciente', 'PacienteController@create')->name('paciente.create');
+Route::get('paciente/inicio', 'PacienteController@index')->name('paciente.index')->middleware('auth');
 
-Route::post('paciente/store', 'PacienteController@store')->name('paciente.store');
+Route::get('paciente', 'PacienteController@create')->name('paciente.create')->middleware('auth');
+
+Route::post('paciente', 'PacienteController@store')->name('paciente.store')->middleware('auth');
+
+Route::get('paciente/{paciente}/edit', 'PacienteController@edit')->name('paciente.edit')->middleware('auth');
+
+Route::put('paciente/{paciente}', 'PacienteController@update')->name('paciente.update')->middleware('auth');
+
+Route::delete('paciente/{paciente}', 'PacienteController@destroy')->name('paciente.destroy')->middleware('auth');

@@ -8,6 +8,7 @@ class TipoDocumento extends Model
 {
     //
     protected $fillable = [
-        'id'
+        'id',
+        'nombre'
     ];
 }

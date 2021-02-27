@@ -13,12 +13,20 @@ class CreatePacientesTable extends Migration
      */
     public function up()
     {
+        Schema::create('generos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            
+            $table->timestamps();
+        });
+        
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             
             $table->timestamps();
         });
+      
 
         Schema::create('municipios', function (Blueprint $table) {
             $table->id();
@@ -28,12 +36,6 @@ class CreatePacientesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('generos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            
-            $table->timestamps();
-        });
 
 
         Schema::create('tipo_documentos', function (Blueprint $table) {
@@ -46,7 +48,7 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tipo_documento_id')->references('id')->on('tipo_documentos');
-            $table->integer('numero_documento');
+            $table->string('numero_documento');
             $table->string('nombre');
             $table->string('nombre2')->nullable();
             $table->string('apellido1');

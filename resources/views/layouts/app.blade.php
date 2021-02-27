@@ -15,9 +15,9 @@
     <!-- Styles -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js">
-    <link rel="stylesheet" href=https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- @yield('style') --}}
     
@@ -25,11 +25,14 @@
 </head>
 <body>
     <div id="app">
+
+       
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('paciente.index') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -77,12 +80,16 @@
         </nav>
 
         <main class="py-4">
+          
             @yield('content')
         </main>
        
         <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
         <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
         <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js" defer></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js" defer></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js" defer></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
         <script src="{{ asset('js/main.js') }}" defer></script>
         
     </div>
